@@ -23,18 +23,9 @@
                         </div>
                         <div class="form-group">
                             <select name="punchline" id="punchline" class="form-control">
-                                <option value="">och du kan inte gissa vad som hände sen!</option>
-                                <option value="">– du anar inte vad som vad hände!</option>
-                                <option value="">och det som hände sen har fått en hel värld att förundras!</option>
-                                <option value="">och det som hände sen har fått ett helt land att förundras!</option>
-                                <option value="">och det som hände sen har fått en hel läkarkår att förundras!</option>
-                                <option value="">det som hände sen kommer förändra din syn på mänskligheten!</option>
-                                <option value="">och det som sen hände fick mig att gråta!</option>
-                                <option value="">– resultatet är chockerande!</option>
-                                <option value="">och resultatet har chockat en hel värld!</option>
-                                <option value="">– ingen kunde ana följderna!</option>
-                                <option value="">– konsekvenserna var oanade!</option>
-                                <option value="">– ingen kunde förutse följderna!</option>
+                                @for ($i = 0; $i < count($punchlines); $i++)
+                                    <option value="{{ $i }}">{{ $punchlines[$i] }}</option>
+                                @endfor
                             </select>
                         </div>
                         <hr>

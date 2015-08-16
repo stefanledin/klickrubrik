@@ -10,7 +10,7 @@ class CreateHeadlineTest extends TestCase
             ->see('Först trodde')
             ->type('Stefan', 'who')
             ->type('tjejen stötte på honom', 'what')
-            ->select('och', 'and-but')
+            ->select('0', 'punchline')
             ->type('http://meme.jpg', 'image-link')
             ->press('submit-headline')
             ->seePageIs('/din-rubrik')

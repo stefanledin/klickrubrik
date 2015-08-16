@@ -2,13 +2,11 @@
 
 use Illuminate\Http\Request;
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [
+    'as' => 'home',
+    'uses' => 'HeadlineController@create'
+]);
 
-Route::post('din-rubrik', function(Request $request) {
-    $name = $request->input('who');
-    $what = $request->input('what');
-    $andBut = $request->input('and-but');
-    return 'Först trodde '.$name.' att '.$what.' '.$andBut.' du kan inte gissa vad som hände sen!';
-});
+#Route::resource('headline', 'HeadlineController');
+
+Route::post('din-rubrik', 'HeadlineController@preview');
