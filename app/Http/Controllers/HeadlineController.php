@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Headline;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -38,12 +39,14 @@ class HeadlineController extends Controller
 
     public function preview(Request $request)
     {
-        $headline = 'Först trodde ';
-        $headline .= $request->input('who') . ' ';
-        $headline .= 'att ';
-        $headline .= $request->input('what') . ' ';
-        $headline .= $this->punchlines[$request->input('punchline')];
-        return $headline;
+        $headline = new Headline;
+        $headline->headline = 'Först trodde ';
+        $headline->headline .= $request->input('who') . ' ';
+        $headline->headline .= 'att ';
+        $headline->headline .= $request->input('what') . ' ';
+        $headline->headline .= $this->punchlines[$request->input('punchline')];
+        $headline->save();
+        return view('headline', ['headline' => $headline->headline]);
     }
 
     /**
