@@ -7,6 +7,4 @@ Route::get('/', [
     'uses' => 'HeadlineController@create'
 ]);
 
-#Route::resource('headline', 'HeadlineController');
-
-Route::post('din-rubrik', 'HeadlineController@preview');
+Route::post('din-rubrik', 'HeadlineController@store');

@@ -12,7 +12,7 @@ class HeadlineController extends Controller
 {
     protected $punchlines = [
         'och du kan inte gissa vad som hände sen!',
-        '– du anar inte vad som vad hände!',
+        '– du anar inte vad som hände!',
         '– då hände det oväntade!',
         '– resultatet är chockerande!',
         '– ingen kunde ana följderna!',
@@ -39,14 +39,7 @@ class HeadlineController extends Controller
 
     public function preview(Request $request)
     {
-        $headline = new Headline;
-        $headline->headline = 'Först trodde ';
-        $headline->headline .= $request->input('who') . ' ';
-        $headline->headline .= 'att ';
-        $headline->headline .= $request->input('what') . ' ';
-        $headline->headline .= $this->punchlines[$request->input('punchline')];
-        $headline->save();
-        return view('headline', ['headline' => $headline->headline]);
+
     }
 
     /**
@@ -57,7 +50,17 @@ class HeadlineController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $headline = new Headline;
+        $headline->headline = 'Först trodde ';
+        $headline->headline .= $request->input('who') . ' ';
+        $headline->headline .= 'att ';
+        $headline->headline .= $request->input('what') . ' ';
+        $headline->headline .= $this->punchlines[$request->input('punchline')];
+
+        $headline->uid = time();
+        $headline->save();
+
+        return view('headline', ['headline' => $headline->headline]);
     }
 
     /**

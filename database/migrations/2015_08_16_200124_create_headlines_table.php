@@ -14,7 +14,9 @@ class CreateHeadlinesTable extends Migration
     {
         Schema::create('headlines', function(Blueprint $table) {
             $table->increments('id');
+            $table->string('uid');
             $table->text('headline');
+            $table->string('attachment');
             $table->timestamps();
         });
     }
