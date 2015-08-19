@@ -2,18 +2,18 @@
 
 @section('content')
 
-<form method="post" action="/din-rubrik">
+<form method="post" action="/din-rubrik" enctype="multipart/form-data">
     {!! csrf_field() !!}
     <h2>Först trodde</h2>
     <div class="form-group">
-        <input type="text" name="who" id="who" class="form-control" placeholder="vem?" autofocus>
+        <input type="text" name="who" id="who" class="form-control input-lg" placeholder="vem?" autofocus>
     </div>
     <h2>att</h2>
     <div class="form-group">
-        <input type="text" name="what" id="what" class="form-control" placeholder="vad?">
+        <input type="text" name="what" id="what" class="form-control input-lg" placeholder="vad?">
     </div>
     <div class="form-group">
-        <select name="punchline" id="punchline" class="form-control">
+        <select name="punchline" id="punchline" class="form-control input-lg">
             @for ($i = 0; $i < count($punchlines); $i++)
                 <option value="{{ $i }}">{{ $punchlines[$i] }}</option>
             @endfor
@@ -31,7 +31,7 @@
                     <div class="col-xs-12 col-sm-6">
                         <div class="form-group">
                             <label for="upload-image">Ladda upp bild</label>
-                            <input type="file" name="upload-image" id="upload-image" class="form-control">
+                            <input type="file" name="upload-image" id="upload-image" class="form-control" accept=".jpg,.png,.gif">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6">

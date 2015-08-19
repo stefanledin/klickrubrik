@@ -7,7 +7,7 @@ class CreateHeadlineTest extends TestCase
 {
     use DatabaseTransactions;
 
-    public function testCreateHeadline()
+    public function testHeadlineCanBeCreated()
     {
         $headline = 'Först trodde Stefan att tjejen stötte på honom och du kan inte gissa vad som hände sen!';
         $this->visit('/')
@@ -19,6 +19,16 @@ class CreateHeadlineTest extends TestCase
             ->press('submit-headline')
             ->seePageIs('/din-rubrik')
             ->see($headline)
-            ->seeInDatabase('headlines', ['headline' => $headline]);
+            ->seeInDatabase('headlines', ['headline' => $headline])
+            ->seeInDatabase('headlines', ['attachment' => 'http://meme.jpg']);
     }
+
+    public function testImageCanBeUploaded()
+    {
+        $this->visit('/')
+            ->attach(base_path().'/tests/meme.jpg', 'upload-image')
+            ->press('submit-headline')
+            ->seeInDatabase('headlines', ['attachment' => 'meme.jpg']);
+    }
+
 }

@@ -36,12 +36,6 @@ class HeadlineController extends Controller
         return view('index', ['punchlines' => $this->punchlines]);
     }
 
-
-    public function preview(Request $request)
-    {
-
-    }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -51,11 +45,19 @@ class HeadlineController extends Controller
     public function store(Request $request)
     {
         $headline = new Headline;
+
         $headline->headline = 'Först trodde ';
         $headline->headline .= $request->input('who') . ' ';
         $headline->headline .= 'att ';
         $headline->headline .= $request->input('what') . ' ';
         $headline->headline .= $this->punchlines[$request->input('punchline')];
+        if ($request->hasFile('upload-image')) {
+            $imageName = $request->file('upload-image')->getClientOriginalName();
+            $request->file('upload-image')->move(public_path().'/uploads', $imageName);
+            $headline->attachment = $imageName;
+        } else {
+            $headline->attachment = $request->input('image-link');
+        }
 
         $headline->uid = time();
         $headline->save();
