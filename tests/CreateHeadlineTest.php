@@ -20,15 +20,27 @@ class CreateHeadlineTest extends TestCase
             ->seePageIs('/din-rubrik')
             ->see($headline)
             ->seeInDatabase('headlines', ['headline' => $headline])
+            ->seeInDatabase('headlines', ['attachment_type' => 'image'])
             ->seeInDatabase('headlines', ['attachment' => 'http://meme.jpg']);
     }
 
     public function testImageCanBeUploaded()
     {
         $this->visit('/')
-            ->attach(base_path().'/tests/meme.jpg', 'upload-image')
+            ->attach(base_path().'/tests/meme.jpg', 'uploaded-image')
             ->press('submit-headline')
+            ->seeInDatabase('headlines', ['attachment_type' => 'image'])
             ->seeInDatabase('headlines', ['attachment' => 'meme.jpg']);
+    }
+
+    public function testHeadlineWithYoutubeMovie()
+    {
+        $youtubeMovie = 'http://youtube.com/movie';
+        $this->visit('/')
+            ->type($youtubeMovie, 'youtube-link')
+            ->press('submit-headline')
+            ->seeInDatabase('headlines', ['attachment_type' => 'youtube'])
+            ->seeInDatabase('headlines', ['attachment' => $youtubeMovie]);
     }
 
 }

@@ -31,7 +31,7 @@
                     <div class="col-xs-12 col-sm-6">
                         <div class="form-group">
                             <label for="upload-image">Ladda upp bild</label>
-                            <input type="file" name="upload-image" id="upload-image" class="form-control" accept=".jpg,.png,.gif">
+                            <input type="file" name="uploaded-image" id="uploaded-image" class="form-control" accept=".jpg,.png,.gif">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6">

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Storage;
 
 class HeadlineController extends Controller
 {
@@ -51,18 +52,17 @@ class HeadlineController extends Controller
         $headline->headline .= 'att ';
         $headline->headline .= $request->input('what') . ' ';
         $headline->headline .= $this->punchlines[$request->input('punchline')];
-        if ($request->hasFile('upload-image')) {
-            $imageName = $request->file('upload-image')->getClientOriginalName();
-            $request->file('upload-image')->move(public_path().'/uploads', $imageName);
-            $headline->attachment = $imageName;
-        } else {
-            $headline->attachment = $request->input('image-link');
-        }
+
+        $headline->addAttachment($request);
 
         $headline->uid = time();
         $headline->save();
 
-        return view('headline', ['headline' => $headline->headline]);
+        return view('headline', [
+            'headline' => $headline->headline,
+            'attachment' => $headline->attachment,
+            'attachment_type' => $headline->attachment_type
+        ]);
     }
 
     /**
