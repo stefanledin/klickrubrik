@@ -42,11 +42,14 @@ class HeadlineCreator {
     protected function addFileAttachment(Request $request)
     {
         $attachment = new Attachment();
-
-        $imageName = $request->file('uploaded-image')->getClientOriginalName();
-        Storage::put(public_path().'/uploads/' . $imageName, $request->file('uploaded-image'));
-        $attachment->link = url() . '/uploads/' . $imageName;
-        $attachment->type = 'image';
+        try {
+            $imageName = $request->file('uploaded-image')->getClientOriginalName();
+            Storage::put(public_path().'/uploads/' . $imageName, $request->file('uploaded-image'));
+            $attachment->link = url() . '/uploads/' . $imageName;
+            $attachment->type = 'image';
+        } catch (\Exception $e) {
+            die(var_dump($e));
+        }
 
         return $attachment;
     }
