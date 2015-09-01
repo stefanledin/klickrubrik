@@ -16,7 +16,6 @@ class CreateHeadlineTest extends TestCase
             ->type('tjejen stötte på honom', 'what')
             ->select('0', 'punchline')
             ->press('submit-headline')
-            ->seePageIs('/din-rubrik')
             ->see($headline)
             ->seeInDatabase('headlines', ['text' => $headline]);
 

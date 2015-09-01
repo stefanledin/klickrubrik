@@ -47,9 +47,7 @@ class HeadlineController extends Controller
 
         $headline = $headlineCreator->create($request);
 
-        return view('headline', [
-            'headline' => $headline
-        ]);
+        return redirect($headline->uid);
     }
 
     /**
