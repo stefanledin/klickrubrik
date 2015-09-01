@@ -2,12 +2,18 @@
 
 @section('content')
 
-    <h1>{{ $headline }}</h1>
+    <h1>{{ $headline->text }}</h1>
 
-    @if($attachment)
-        @if($attachment_type == 'image')
-            <img src="{{ $attachment }}">
+    @if($headline->attachment)
+
+        @if($headline->attachment->type == 'image')
+            <img src="{{ $headline->attachment->link }}">
         @endif
+
+        @if($headline->attachment->type == 'youtube')
+            {!! $headline->attachment->embedCode() !!}
+        @endif
+
     @endif
 
 @endsection

@@ -15,13 +15,21 @@ class CreateHeadlineTest extends TestCase
             ->type('Stefan', 'who')
             ->type('tjejen stötte på honom', 'what')
             ->select('0', 'punchline')
-            ->type('http://meme.jpg', 'image-link')
             ->press('submit-headline')
             ->seePageIs('/din-rubrik')
             ->see($headline)
-            ->seeInDatabase('headlines', ['headline' => $headline])
-            ->seeInDatabase('headlines', ['attachment_type' => 'image'])
-            ->seeInDatabase('headlines', ['attachment' => 'http://meme.jpg']);
+            ->seeInDatabase('headlines', ['text' => $headline]);
+
+    }
+
+    public function testHeadlineWithImageLink()
+    {
+        $this->visit('/')
+            ->see('Först trodde')
+            ->type('http://meme.jpg', 'image-link')
+            ->press('submit-headline')
+            ->seeInDatabase('attachments', ['type' => 'image'])
+            ->seeInDatabase('attachments', ['link' => 'http://meme.jpg']);
     }
 
     public function testImageCanBeUploaded()
@@ -29,8 +37,8 @@ class CreateHeadlineTest extends TestCase
         $this->visit('/')
             ->attach(base_path().'/tests/meme.jpg', 'uploaded-image')
             ->press('submit-headline')
-            ->seeInDatabase('headlines', ['attachment_type' => 'image'])
-            ->seeInDatabase('headlines', ['attachment' => 'meme.jpg']);
+            ->seeInDatabase('attachments', ['type' => 'image'])
+            ->seeInDatabase('attachments', ['link' => url().'/uploads/meme.jpg']);
     }
 
     public function testHeadlineWithYoutubeMovie()
@@ -39,8 +47,8 @@ class CreateHeadlineTest extends TestCase
         $this->visit('/')
             ->type($youtubeMovie, 'youtube-link')
             ->press('submit-headline')
-            ->seeInDatabase('headlines', ['attachment_type' => 'youtube'])
-            ->seeInDatabase('headlines', ['attachment' => $youtubeMovie]);
+            ->seeInDatabase('attachments', ['type' => 'youtube'])
+            ->seeInDatabase('attachments', ['link' => $youtubeMovie]);
     }
 
 }

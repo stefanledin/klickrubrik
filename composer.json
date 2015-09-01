@@ -19,6 +19,9 @@
         "classmap": [
             "database"
         ],
+        "files": [
+            "app/Headlines/punchlines.php"
+        ],
         "psr-4": {
             "App\\": "app/"
         }

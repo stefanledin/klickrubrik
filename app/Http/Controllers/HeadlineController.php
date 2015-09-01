@@ -2,30 +2,28 @@
 
 namespace App\Http\Controllers;
 
+use App\Attachment;
 use App\Headline;
+use App\Headlines\HeadlineCreator;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 use Storage;
 
 class HeadlineController extends Controller
 {
-    protected $punchlines = [
-        'och du kan inte gissa vad som hände sen!',
-        '– du anar inte vad som hände!',
-        '– då hände det oväntade!',
-        '– resultatet är chockerande!',
-        '– ingen kunde ana följderna!',
-        '– konsekvenserna var oanade!',
-        '– ingen kunde förutse följderna!',
-        'och det som hände sen har fått en hel värld att förundras!',
-        'och det som hände sen har fått ett helt land att förundras!',
-        'och det som hände sen har fått en hel läkarkår att förundras!',
-        'det som hände sen kommer förändra din syn på mänskligheten!',
-        'och det som sen hände fick mig att gråta!',
-        'och resultatet har chockat en hel värld!',
-    ];
+    protected $punchlines;
+
+    /**
+     * HeadlineController constructor.
+     */
+    public function __construct()
+    {
+        $this->punchlines = \App\Headlines\getPunchlines();
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -45,23 +43,12 @@ class HeadlineController extends Controller
      */
     public function store(Request $request)
     {
-        $headline = new Headline;
+        $headlineCreator = new HeadlineCreator();
 
-        $headline->headline = 'Först trodde ';
-        $headline->headline .= $request->input('who') . ' ';
-        $headline->headline .= 'att ';
-        $headline->headline .= $request->input('what') . ' ';
-        $headline->headline .= $this->punchlines[$request->input('punchline')];
-
-        $headline->addAttachment($request);
-
-        $headline->uid = time();
-        $headline->save();
+        $headline = $headlineCreator->create($request);
 
         return view('headline', [
-            'headline' => $headline->headline,
-            'attachment' => $headline->attachment,
-            'attachment_type' => $headline->attachment_type
+            'headline' => $headline
         ]);
     }
 
@@ -73,7 +60,11 @@ class HeadlineController extends Controller
      */
     public function show($id)
     {
-        //
+        $headline = Headline::where('uid', $id)->first();
+        if ($headline) {
+            return view('headline', ['headline' => $headline]);
+        }
+        return Redirect::home();
     }
 
     /**

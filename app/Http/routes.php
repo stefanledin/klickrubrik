@@ -8,3 +8,5 @@ Route::get('/', [
 ]);
 
 Route::post('din-rubrik', 'HeadlineController@store');
+
+Route::get('{headline}', 'HeadlineController@show');
