@@ -5991,4 +5991,8 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+img {
+  max-width: 100%;
+  height: auto; }
+
 /*# sourceMappingURL=app.css.map */
