@@ -42,10 +42,10 @@ class HeadlineCreator {
     protected function addFileAttachment(Request $request)
     {
         $attachment = new Attachment();
-        
+
         $imageName = $request->file('uploaded-image')->getClientOriginalName();
         $request->file('uploaded-image')->move(public_path().'/uploads/', $imageName);
-        #Storage::put(public_path().'/uploads/' . $imageName, $request->file('uploaded-image'));
+
         $attachment->link = url() . '/uploads/' . $imageName;
         $attachment->type = 'image';
 
