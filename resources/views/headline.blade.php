@@ -1,5 +1,12 @@
 @extends('master')
 
+@section('head')
+    <meta property="og:url" content="{{ url($headline->uid) }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ $headline->text }}">
+    <meta property="og:description" content="Your description">
+@endsection
+
 @section('content')
 
     <h1>{{ $headline->text }}</h1>
@@ -28,7 +35,8 @@
 
     <div class="btn-group">
         <a href="{{ route('home') }}" class="btn btn-success">Ny rubrik</a>
-        <!--<a href="" class="btn btn-primary">Dela med e-post</a>-->
+        <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(url($headline->uid));?>" class="btn btn-primary">Dela på Facebook</a>
+        <a href="mailto:?subject=Klickrubrik&amp;body={{ url($headline->uid) }}" class="btn btn-primary">Dela med e-post</a>
     </div>
 
 @endsection
