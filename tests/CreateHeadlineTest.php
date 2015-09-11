@@ -9,7 +9,7 @@ class CreateHeadlineTest extends TestCase
 
     public function testHeadlineCanBeCreated()
     {
-        $headline = 'Först trodde Stefan att tjejen stötte på honom och du kan inte gissa vad som hände sen!';
+        $headline = '<h2>Först trodde Stefan</h2><h1>att tjejen stötte på honom</h1><h2>och du kan inte gissa vad som hände sen!</h2>';
         $this->visit('/')
             ->see('Först trodde')
             ->type('Stefan', 'who')

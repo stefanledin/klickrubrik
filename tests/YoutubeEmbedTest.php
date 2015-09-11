@@ -21,7 +21,7 @@ class YoutubeEmbedTest extends TestCase
 
         $headline->attachment()->save($attachment);
 
-        $expected = '<iframe width="560" height="315" src="https://www.youtube.com/embed/rDdKNt-CvXA" frameborder="0" allowfullscreen></iframe>';
+        $expected = '<iframe class="embed-responsive-item" width="560" height="315" src="https://www.youtube.com/embed/rDdKNt-CvXA" allowfullscreen></iframe>';
 
         $this->assertEquals($expected, $attachment->embedCode());
     }

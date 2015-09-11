@@ -89,7 +89,7 @@ class HeadlineCreator {
         $who = $request->input('who');
         $what = $request->input('what');
         $punchline = $this->punchlines[$request->input('punchline')];
-        return sprintf('Först trodde %s att %s %s', $who, $what, $punchline);
+        return sprintf('<h2>Först trodde %s</h2><h1>att %s</h1><h2>%s</h2>', $who, $what, $punchline);
     }
 
     /**
