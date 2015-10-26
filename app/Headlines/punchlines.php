@@ -15,6 +15,9 @@ function getPunchlines() {
         'det som hände sen har fått ett helt land att förundras!',
         'det som hände sen har fått en hel läkarkår att förundras!',
         'det som hände sen kommer förändra din syn på mänskligheten!',
+        'det som hände förändrade allt!',
+        'det som hände förändrade hennes liv!',
+        'det som hände förändrade hans liv!',
         'det som sen hände fick mig att gråta!',
         'resultatet har chockat en hel värld!',
     ];
