@@ -28,6 +28,8 @@
             <h1>att @{{what}}</h1>
             <h2>@{{punchline}}</h2>
 
+            <div id="attachment-placeholder"></div>
+
             <hr>
 
             <div class="well well-lg">
@@ -47,7 +49,7 @@
                             <div class="col-xs-12 col-sm-6">
                                 <div class="form-group">
                                     <label for="image-link">Länk till bild</label>
-                                    <input type="text" name="image-link" id="image-link" class="form-control">
+                                    <input type="text" v-model="imageLink" v-on="keyup: loadImageLink" debounce="2000" name="image-link" id="image-link" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -62,7 +64,7 @@
                             <div class="col-xs-12">
                                 <div class="form-group">
                                     <label for="youtube-link">YouTube-länk</label>
-                                    <input type="text" name="youtube-link" id="youtube-link" class="form-control">
+                                    <input v-model="youtubeLink" type="text" name="youtube-link" id="youtube-link" class="form-control">
                                 </div>
                             </div>
                         </div>
