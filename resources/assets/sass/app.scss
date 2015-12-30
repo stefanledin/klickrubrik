@@ -1,6 +1,130 @@
+/**
+ * Colors
+ */
+$blue: #00569f;
+$yellow: #f3e103;
+$red: #ff0b14;
+$lightGrey: #f5f5f5;
+
+/**
+ * Bootstrap
+ */
+$btn-success-bg: $blue;
+$btn-success-color: #fff;
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+
+/**
+ * Fonts
+ */
+$font: "museo-sans-condensed";
+.wf-active {
+	body {
+		font-family: $font;
+	}
+	h1,
+	h2,
+	h3,
+	label {
+		font-family: $font;
+		font-weight: 700;
+	}
+	.main-menu a {
+		font-family: $font;
+	}	
+}
+
+/**
+ * Globals
+ */
 img {
   max-width: 100%;
   height: auto;
 }
+h1 {
+	text-align: center;
+}
+h2 {
+	font-size: 25px;
+}
+hr {
+	border-top: 1px solid $blue;
+}
+
+/**
+ * Header
+ */
+header {
+	background: $blue;
+}
+header[role="banner"] {
+	margin-bottom: 57px;
+	height: 112px;
+	.logo {
+		position: absolute;
+		top: 14px;
+		max-width: 198px;
+		z-index: 1;
+	}
+}
+header.stripe {
+	margin-bottom: 76px;
+	padding-top: 6px;
+	height: 82px;
+	.logo {
+		margin: 0 auto;
+		width: 160px;
+		display: block;
+	}
+}
+.main-menu {
+	margin: 0 auto;
+	width: 506px;
+	ul {
+		margin: 0;
+		padding: 0;
+	}
+	li {
+		width: 166px;
+		height: 112px;
+		display: inline-block;
+		text-align: center;
+		&:hover {
+			background: #004987;
+		}
+	}
+	a {
+		text-transform: uppercase;
+		color: white;
+	}
+}
+
+/**
+ * Main content area
+ */
+main {
+	
+}
+
+/**
+ * Create headline
+ */
+.create-headline {
+	background: $lightGrey;
+}
+h2 {
+	text-align: center;
+}
+
+/**
+ * Headline
+ */
+.headline {
+	h1 {
+		margin-top: 0;
+		text-align: left;
+	}
+}
+
+
+

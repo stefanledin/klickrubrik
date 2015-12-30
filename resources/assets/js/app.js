@@ -4,7 +4,7 @@
     var createHeadlineForm = new Vue({
         el: '#create-headline',
         data: {
-            punchline: 'och du kan inte gissa vad som hände sen!'
+            punchline: '– du kan inte gissa vad som hände sen!'
         },
         methods: {
             setPunchline: function(event) {

@@ -1,3 +1,9 @@
+/**
+ * Colors
+ */
+/**
+ * Bootstrap
+ */
 /*!
  * Bootstrap v3.3.5 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -2940,23 +2946,23 @@ fieldset[disabled] a.btn {
 
 .btn-success {
   color: #fff;
-  background-color: #5cb85c;
-  border-color: #4cae4c; }
+  background-color: #00569f;
+  border-color: #004886; }
   .btn-success:focus,
   .btn-success.focus {
     color: #fff;
-    background-color: #449d44;
-    border-color: #255625; }
+    background-color: #003a6c;
+    border-color: #000306; }
   .btn-success:hover {
     color: #fff;
-    background-color: #449d44;
-    border-color: #398439; }
+    background-color: #003a6c;
+    border-color: #002748; }
   .btn-success:active,
   .btn-success.active,
   .open > .btn-success.dropdown-toggle {
     color: #fff;
-    background-color: #449d44;
-    border-color: #398439; }
+    background-color: #003a6c;
+    border-color: #002748; }
     .btn-success:active:hover,
     .btn-success:active:focus,
     .btn-success:active.focus,
@@ -2967,8 +2973,8 @@ fieldset[disabled] a.btn {
     .open > .btn-success.dropdown-toggle:focus,
     .open > .btn-success.dropdown-toggle.focus {
       color: #fff;
-      background-color: #398439;
-      border-color: #255625; }
+      background-color: #002748;
+      border-color: #000306; }
   .btn-success:active,
   .btn-success.active,
   .open > .btn-success.dropdown-toggle {
@@ -2991,10 +2997,10 @@ fieldset[disabled] a.btn {
   fieldset[disabled] .btn-success.focus,
   fieldset[disabled] .btn-success:active,
   fieldset[disabled] .btn-success.active {
-    background-color: #5cb85c;
-    border-color: #4cae4c; }
+    background-color: #00569f;
+    border-color: #004886; }
   .btn-success .badge {
-    color: #5cb85c;
+    color: #00569f;
     background-color: #fff; }
 
 .btn-info {
@@ -5991,8 +5997,96 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+/**
+ * Fonts
+ */
+.wf-active body {
+  font-family: "museo-sans-condensed"; }
+
+.wf-active h1,
+.wf-active h2,
+.wf-active h3,
+.wf-active label {
+  font-family: "museo-sans-condensed";
+  font-weight: 700; }
+
+.wf-active .main-menu a {
+  font-family: "museo-sans-condensed"; }
+
+/**
+ * Globals
+ */
 img {
   max-width: 100%;
   height: auto; }
+
+h1 {
+  text-align: center; }
+
+h2 {
+  font-size: 25px; }
+
+hr {
+  border-top: 1px solid #00569f; }
+
+/**
+ * Header
+ */
+header {
+  background: #00569f; }
+
+header[role="banner"] {
+  margin-bottom: 57px;
+  height: 112px; }
+  header[role="banner"] .logo {
+    position: absolute;
+    top: 14px;
+    max-width: 198px;
+    z-index: 1; }
+
+header.stripe {
+  margin-bottom: 76px;
+  padding-top: 6px;
+  height: 82px; }
+  header.stripe .logo {
+    margin: 0 auto;
+    width: 160px;
+    display: block; }
+
+.main-menu {
+  margin: 0 auto;
+  width: 506px; }
+  .main-menu ul {
+    margin: 0;
+    padding: 0; }
+  .main-menu li {
+    width: 166px;
+    height: 112px;
+    display: inline-block;
+    text-align: center; }
+    .main-menu li:hover {
+      background: #004987; }
+  .main-menu a {
+    text-transform: uppercase;
+    color: white; }
+
+/**
+ * Main content area
+ */
+/**
+ * Create headline
+ */
+.create-headline {
+  background: #f5f5f5; }
+
+h2 {
+  text-align: center; }
+
+/**
+ * Headline
+ */
+.headline h1 {
+  margin-top: 0;
+  text-align: left; }
 
 /*# sourceMappingURL=app.css.map */

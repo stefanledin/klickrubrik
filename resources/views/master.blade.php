@@ -8,16 +8,16 @@
         @show
         <title>Klickrubrik.nu</title>
         <link rel="stylesheet" href="css/app.css">
+        <script src="https://use.typekit.net/ars2mhh.js"></script>
+        <script>try{Typekit.load({ async: true });}catch(e){}</script>
     </head>
     <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12">
-                    @section('content')
-                    @show
-                </div>
-            </div>
-        </div>
+        
+        <main>
+            @section('content')
+            @show
+        </main>
+        
         <script src="js/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/vue.min.js"></script>
