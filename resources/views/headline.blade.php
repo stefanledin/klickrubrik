@@ -10,16 +10,15 @@
 @section('content')
 
     <header class="stripe">
-        <img src="img/klickrubrik-logo.png" class="logo">
+        <a href="{{ route('home') }}">
+            <img src="img/klickrubrik-logo.png" class="logo">
+        </a>
     </header>
 
     <section class="headline">
         <div class="row">
             <div class="col-xs-6 col-xs-offset-3">
                 <h1>{!! $headline->text !!}</h1>
-                <?php
-
-                ?>
                 @if($headline->attachment)
                     <div class="panel panel-default">
                         <div class="panel-heading">
