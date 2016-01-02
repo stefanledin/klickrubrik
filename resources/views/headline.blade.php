@@ -2,9 +2,7 @@
 
 @section('head')
     <meta property="og:url" content="{{ url($headline->uid) }}">
-    <meta property="og:type" content="website">
     <meta property="og:title" content="{{ strip_tags($headline->text ) }}">
-    <meta property="og:description" content="Your description">
 @endsection
 
 @section('content')

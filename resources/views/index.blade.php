@@ -1,5 +1,10 @@
 @extends('master')
 
+@section('head')
+    <meta property="og:url" content="http://klickrubrik.nu">
+    <meta property="og:title" content="Klickrubrik – Förändrar allt!">
+@endsection
+
 @section('content')
 
 <header role="banner">
@@ -40,21 +45,16 @@
                                         </select>
                                         <hr>
                                         <h3>Vad hände sen?</h3>
-                                        <div class="">
-                                            <label for="upload-image">Ladda upp bild</label>
-                                            <input type="file" name="uploaded-image" id="uploaded-image" class="form-control" accept=".jpg,.png,.gif">
-                                        </div>
-                                        <div class="">
-                                            <label for="image-link">Länk till bild</label>
-                                            <input type="text" name="image-link" id="image-link" class="form-control">
-                                        </div>
-                                        <div class="">
-                                            <label for="youtube-link">YouTube-länk</label>
-                                            <input type="text" name="youtube-link" id="youtube-link" class="form-control">
-                                        </div>
-                                        <div class="">
-                                            <button id="submit-headline" class="btn btn-success">Visa min rubrik!</button>
-                                        </div>
+                                        <label for="upload-image">Ladda upp bild</label>
+                                        <input type="file" name="uploaded-image" id="uploaded-image" class="form-control" accept=".jpg,.png,.gif">
+                                        
+                                        <label for="image-link">Länk till bild</label>
+                                        <input type="text" name="image-link" id="image-link" class="form-control">
+                                        
+                                        <label for="youtube-link">YouTube-länk</label>
+                                        <input type="text" name="youtube-link" id="youtube-link" class="form-control">
+                                        <br>
+                                        <button id="submit-headline" class="btn btn-success">Visa min rubrik!</button>
                                     </div>
                                 </div>
                             </div>

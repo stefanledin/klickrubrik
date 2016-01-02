@@ -64,13 +64,20 @@ header {
 	background: $blue;
 }
 header[role="banner"] {
-	margin-bottom: 57px;
-	height: 112px;
+	margin-bottom: 27px;
+	height: 61px;
+	@media (min-width: 768px) {
+		height: 112px;
+		margin-bottom: 57px;
+	}
 	.logo {
 		position: absolute;
 		top: 14px;
-		max-width: 198px;
+		max-width: 99px;
 		z-index: 1;
+		@media (min-width: 768px) {
+			max-width: 198px;
+		}
 	}
 }
 header.stripe {
