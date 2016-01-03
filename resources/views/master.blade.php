@@ -19,9 +19,6 @@
         @section('content')
         @show
         
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/vue.min.js"></script>
         <script src="{{ elixir('js/all.js') }}"></script>
         <script>
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
