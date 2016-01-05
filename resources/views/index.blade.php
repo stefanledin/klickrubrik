@@ -42,6 +42,7 @@
                                                 @for ($i = 0; $i < count($punchlines); $i++)
                                                     <option value="{{ $i }}">{{ $punchlines[$i] }}</option>
                                                 @endfor
+                                                <optgroup label=""></optgroup>
                                             </select>
                                             <hr>
                                             <h3>Vad hände sen?</h3>
