@@ -19,6 +19,9 @@ elixir(function(mix) {
     	.scripts([
             'vue.min.js',
             'jquery.min.js',
+            'jquery.ui.widget.js',
+            'jquery.iframe-transport.js',
+            'jquery.fileupload.js',
             'bootstrap.min.js',
         	'app.js'
     	])

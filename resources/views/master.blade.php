@@ -16,6 +16,16 @@
     </head>
     <body>
         
+        <header role="banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <img src="img/klickrubrik-logo.png" class="logo">
+                    </div>
+                </div>
+            </div>
+        </header>
+
         @section('content')
         @show
         

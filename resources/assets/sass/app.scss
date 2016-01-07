@@ -65,30 +65,16 @@ header {
 }
 header[role="banner"] {
 	margin-bottom: 27px;
-	height: 61px;
+	height: 82px;
 	@media (min-width: 768px) {
 		height: 112px;
 		margin-bottom: 57px;
 	}
-	.logo {
-		position: absolute;
-		top: 14px;
-		max-width: 99px;
-		z-index: 1;
-		@media (min-width: 768px) {
-			max-width: 198px;
-		}
-	}
 }
-header.stripe {
-	margin-bottom: 76px;
-	padding-top: 6px;
-	height: 82px;
-	.logo {
-		margin: 0 auto;
-		width: 160px;
-		display: block;
-	}
+.logo {
+	margin: 14px auto 0;
+	width: 160px;
+	display: block;
 }
 .main-menu {
 	margin: 0 auto;
@@ -121,19 +107,23 @@ header.stripe {
 	h2 input {
 		width: 100%;
 		display: block;
-		@media (min-width: 500px) {
-			width: auto;
-			display: inline-block;
-		}
-	}
-	input[name="what"] {
-		margin-bottom: 10px;
-		width: 100%;
-		font-size: 25px;
 	}
 }
 h2 {
 	text-align: center;
+}
+.preview-container {
+	background: $blue;
+	display: none;
+	@media (min-width: $screen-sm-min) {
+		display: block;
+	}
+}
+#preview {
+	background: white;
+}
+.preview-placeholder {
+	color: $red;
 }
 
 /**
