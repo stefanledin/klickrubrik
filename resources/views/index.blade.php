@@ -35,7 +35,8 @@
                                     <h3>Vad hände sen?</h3>
                                     <label for="upload-image">Ladda upp bild</label>
                                     <input data-url="/attachment-upload" type="file" name="uploaded-image" id="uploaded-image" class="form-control" accept=".jpg,.png,.gif">
-                                    
+                                    <input type="hidden" name="ajax-uploaded-image-url" id="ajax-uploaded-image-url">
+
                                     <label for="image-link">Länk till bild</label>
                                     <input type="text" name="image-link" id="image-link" class="form-control" v-model="imageLink" v-on="keyup: loadImageLink" debounce="2000">
                                     

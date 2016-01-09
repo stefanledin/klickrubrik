@@ -37,6 +37,35 @@ class HeadlineCreator {
 
     /**
      * @param Request $request
+     * @return string
+     */
+    protected function writeHeadline(Request $request)
+    {
+        $who = $request->input('who');
+        $what = $request->input('what');
+        $punchline = $this->punchlines[$request->input('punchline')];
+        return sprintf('Först trodde %s att %s %s', $who, $what, $punchline);
+    }
+
+    /**
+     * @param Request $request
+     * @param $headline
+     */
+    protected function addAttachmentIfAny(Request $request, Headline $headline)
+    {
+        if ($request->hasFile('uploaded-image')) {
+            $attachment = $this->addFileAttachment($request);
+        } else {
+            $attachment = $this->addLinkAttachment($request);
+        }
+
+        if ($attachment) {
+            $headline->attachment()->save($attachment);
+        }
+    }
+
+    /**
+     * @param Request $request
      * @return Attachment
      */
     protected function addFileAttachment(Request $request)
@@ -66,6 +95,10 @@ class HeadlineCreator {
             (object)[
                 'name' => 'image-link',
                 'type' => 'image'
+            ],
+            (object)[
+                'name' => 'ajax-uploaded-image-url',
+                'type' => 'image'
             ]
         ];
         foreach ($linkAttachmentTypes as $linkAttachmentType) {
@@ -80,32 +113,4 @@ class HeadlineCreator {
         }
     }
 
-    /**
-     * @param Request $request
-     * @return string
-     */
-    protected function writeHeadline(Request $request)
-    {
-        $who = $request->input('who');
-        $what = $request->input('what');
-        $punchline = $this->punchlines[$request->input('punchline')];
-        return sprintf('Först trodde %s att %s %s', $who, $what, $punchline);
-    }
-
-    /**
-     * @param Request $request
-     * @param $headline
-     */
-    protected function addAttachmentIfAny(Request $request, Headline $headline)
-    {
-        if ($request->hasFile('uploaded-image')) {
-            $attachment = $this->addFileAttachment($request);
-        } else {
-            $attachment = $this->addLinkAttachment($request);
-        }
-
-        if ($attachment) {
-            $headline->attachment()->save($attachment);
-        }
-    }
 }

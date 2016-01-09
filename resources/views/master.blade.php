@@ -20,7 +20,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12">
-                        <img src="img/klickrubrik-logo.png" class="logo">
+                        <a href="{{ url() }}">
+                            <img src="img/klickrubrik-logo.png" class="logo">
+                        </a>
                     </div>
                 </div>
             </div>

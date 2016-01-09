@@ -2324,7 +2324,11 @@ d.trigger("activate.bs.scrollspy")},b.prototype.clear=function(){a(this.selector
         dataType: 'json',
         done: function (e, data) {
             if (data.result.uploadedImageURL) {
-                createHeadlineForm.imageLink = data.result.uploadedImageURL;
+                var url = data.result.uploadedImageURL;
+                document.getElementById('ajax-uploaded-image-url').setAttribute('value', url);
+                var img = new Image;
+                img.src = url;
+                document.getElementById('preview-link-image-attachment').appendChild(img);
             }
         }
     });
