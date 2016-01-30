@@ -71,8 +71,8 @@ class HeadlineCreator {
     protected function addFileAttachment(Request $request)
     {
         $attachment = new Attachment();
-
         $imageName = $request->file('uploaded-image')->getClientOriginalName();
+        $imageName = cleanFilename($imageName);
         $request->file('uploaded-image')->move(public_path().'/uploads/', $imageName);
 
         $attachment->link = url() . '/uploads/' . $imageName;
