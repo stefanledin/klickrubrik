@@ -9,6 +9,11 @@ Route::get('/', [
 
 Route::post('din-rubrik', 'HeadlineController@store');
 
+Route::get('youtube-embed', function(Request $request)
+{
+    return youtubeEmbed($request->get('url'));
+});
+
 Route::get('{headline}', 'HeadlineController@show');
 
 Route::post('attachment-upload', function (Request $request)
@@ -17,3 +22,4 @@ Route::post('attachment-upload', function (Request $request)
     $request->file('uploaded-image')->move(public_path().'/uploads/', $imageName);
     return response()->json(['uploadedImageURL' => url('uploads/'.$imageName)]);
 });
+

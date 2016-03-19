@@ -1,11 +1,12 @@
 ;(function(window, document, $, undefined) {
     'use strict';
-    
+
     var createHeadlineForm = new Vue({
         el: '#create-headline',
         data: {
             punchline: '',
-            imageLink: ''
+            imageLink: '',
+            youtubeLink: ''
         },
         methods: {
             setPunchline: function(event) {
@@ -16,7 +17,7 @@
                 if (this.imageLink === e.currentTarget.value) return;
 
                 this.imageLink = e.currentTarget.value;
-                
+
                 var img = new Image;
                 img.src = this.imageLink;
                 img.onload = function() {
@@ -27,21 +28,37 @@
                     }
                     placeholder.appendChild(img);
                 }.bind(this);
-            }
-        }
-    });
+            },
+            loadYoutubeEmbedLink: function(e) {
+                this.youtubeLink = e.currentTarget.value;
+                if (this.youtubeLink !== '') {
+                    var url = '/youtube-embed?url=' + this.youtubeLink;
+                    $.ajax(url, {
+                        success: function(data) {
+                            document.getElementById('preview-youtube-embed').innerHTML = data;
+                        } 
+                    });
 
-    $('input[name="uploaded-image"]').fileupload({
-        dataType: 'json',
-        done: function (e, data) {
-            if (data.result.uploadedImageURL) {
-                var url = data.result.uploadedImageURL;
-                document.getElementById('ajax-uploaded-image-url').setAttribute('value', url);
-                var img = new Image;
-                img.src = url;
-                document.getElementById('preview-link-image-attachment').appendChild(img);
+                } else {
+                    document.getElementById('preview-youtube-embed').innerHTML = '';
+                }
             }
         }
     });
-    
+    if (matchMedia('(min-width: 767px)').matches) {
+        $('input[name="uploaded-image"]').fileupload({
+            dataType: 'json',
+            done: function (e, data) {
+                if (data.result.uploadedImageURL) {
+                    var url = data.result.uploadedImageURL;
+                    document.getElementById('ajax-uploaded-image-url').setAttribute('value', url);
+                    var img = new Image;
+                    img.src = url;
+                    document.getElementById('preview-link-image-attachment').appendChild(img);
+                }
+            }
+        });
+
+    }
+
 })(window, document, jQuery);

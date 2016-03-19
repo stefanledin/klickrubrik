@@ -21,7 +21,8 @@
         ],
         "files": [
             "app/Headlines/punchlines.php",
-            "app/cleanFilename.php"
+            "app/cleanFilename.php",
+            "app/youtubeEmbed.php"
         ],
         "psr-4": {
             "App\\": "app/"

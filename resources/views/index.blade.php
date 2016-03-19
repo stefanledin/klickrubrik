@@ -41,7 +41,7 @@
                                     <input type="text" name="image-link" id="image-link" class="form-control" v-model="imageLink" v-on="keyup: loadImageLink" debounce="2000">
                                     
                                     <label for="youtube-link">YouTube-länk</label>
-                                    <input type="text" name="youtube-link" id="youtube-link" class="form-control">
+                                    <input type="text" name="youtube-link" id="youtube-link" class="form-control" v-model="youtubeLink" v-on="keyup: loadYoutubeEmbedLink" debounce="2000">
                                     <br>
                                     <button id="submit-headline" class="btn btn-success">Visa min rubrik!</button>
                                 </div>
@@ -73,6 +73,7 @@
                                     
                                     <div id="preview-link-image-attachment"></div>
                                     <div id="preview-uploaded-image-attachment"></div>
+                                    <div id="preview-youtube-embed"></div>
                                 </section>
                             </div>
                         </div>
