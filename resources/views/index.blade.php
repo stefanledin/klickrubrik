@@ -73,7 +73,7 @@
                                     
                                     <div id="preview-link-image-attachment"></div>
                                     <div id="preview-uploaded-image-attachment"></div>
-                                    <div id="preview-youtube-embed"></div>
+                                    <div id="preview-youtube-embed" class="embed-responsive embed-responsive-16by9"></div>
                                 </section>
                             </div>
                         </div>

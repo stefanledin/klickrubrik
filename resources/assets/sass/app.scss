@@ -67,7 +67,7 @@ header[role="banner"] {
 	margin-bottom: 27px;
 	height: 82px;
 	@media (min-width: 768px) {
-		height: 112px;
+		height: 94px;
 		margin-bottom: 57px;
 	}
 }
@@ -105,12 +105,14 @@ header[role="banner"] {
 	padding: 10px;
 	background: $lightGrey;
 	h2 input {
+        margin: 8px 0;
+        padding: 4px;
 		width: 100%;
 		display: block;
 	}
 }
 h2 {
-	text-align: center;
+	text-align: left;
 }
 .preview-container {
 	background: $blue;
