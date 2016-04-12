@@ -16,6 +16,18 @@
     </head>
     <body>
         
+        <header role="banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <a href="{{ url() }}">
+                            <img src="img/klickrubrik-logo.png" class="logo">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
         @section('content')
         @show
         

@@ -40,6 +40,17 @@ class CreateHeadlineTest extends TestCase
             ->seeInDatabase('attachments', ['link' => url().'/uploads/meme.jpg']);
     }
 
+    public function testImageUploadedWithAjax()
+    {
+        $this->WithoutMiddleware();
+        $uploadedImageUrl = url().'/uploads/meme.jpg';
+        $response = $this->call('POST', '/din-rubrik', [
+            'punchline' => 0,
+            'ajax-uploaded-image-url' => $uploadedImageUrl
+        ]);
+        $this->seeInDatabase('attachments', ['link' => $uploadedImageUrl]);
+    }
+
     public function testHeadlineWithYoutubeMovie()
     {
         $youtubeMovie = 'http://youtube.com/movie';

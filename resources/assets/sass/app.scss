@@ -56,6 +56,14 @@ h2 {
 hr {
 	border-top: 1px solid $blue;
 }
+.table {
+	display: table;
+	height: 100%;
+}
+.table-cell {
+	display: table-cell;
+	vertical-align: middle;
+}
 
 /**
  * Header
@@ -65,30 +73,16 @@ header {
 }
 header[role="banner"] {
 	margin-bottom: 27px;
-	height: 61px;
+	height: 82px;
 	@media (min-width: 768px) {
-		height: 112px;
+		height: 94px;
 		margin-bottom: 57px;
 	}
-	.logo {
-		position: absolute;
-		top: 14px;
-		max-width: 99px;
-		z-index: 1;
-		@media (min-width: 768px) {
-			max-width: 198px;
-		}
-	}
 }
-header.stripe {
-	margin-bottom: 76px;
-	padding-top: 6px;
-	height: 82px;
-	.logo {
-		margin: 0 auto;
-		width: 160px;
-		display: block;
-	}
+.logo {
+	margin: 14px auto 0;
+	width: 160px;
+	display: block;
 }
 .main-menu {
 	margin: 0 auto;
@@ -119,22 +113,43 @@ header.stripe {
 	padding: 10px;
 	background: $lightGrey;
 	h2 input {
+        margin: 8px 0;
+        padding: 4px;
 		width: 100%;
 		display: block;
-		@media (min-width: 500px) {
-			width: auto;
-			display: inline-block;
-		}
 	}
-	input[name="what"] {
+	.form-control {
 		margin-bottom: 10px;
-		width: 100%;
-		font-size: 25px;
 	}
 }
-h2 {
-	text-align: center;
+.preview-container {
+	padding: 20px 0;
+	background: $blue;
+	display: none;
+	.logo {
+		margin: 0 auto 10px;		
+	}
+	@media (min-width: $screen-sm-min) {
+		display: block;
+	}
 }
+#preview {
+	padding: 0 20px 20px;
+	background: white;
+	overflow: hidden;
+}
+.preview-placeholder {
+	color: $red;
+}
+.attachment-placeholder {
+	height: 250px;
+	background: $blue;
+	h2 {
+		text-align: center;
+		color: #fff;
+	}
+}
+
 
 /**
  * Headline
