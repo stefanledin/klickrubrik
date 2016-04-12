@@ -42,7 +42,6 @@
                                     
                                     <label for="youtube-link">YouTube-länk</label>
                                     <input type="text" name="youtube-link" id="youtube-link" class="form-control" v-model="youtubeLink" v-on="keyup: loadYoutubeEmbedLink" debounce="2000">
-                                    <br>
                                     <button id="submit-headline" class="btn btn-success">Visa min rubrik!</button>
                                 </div>
                             </div>
@@ -70,10 +69,14 @@
                                             @{{punchline}}
                                         </span>
                                     </h2>
-                                    
-                                    <div id="preview-link-image-attachment"></div>
-                                    <div id="preview-uploaded-image-attachment"></div>
-                                    <div id="preview-youtube-embed" class="embed-responsive embed-responsive-16by9"></div>
+                                    <div v-if="hasAttachment" class="attachment-placeholder">
+                                        <div class="table">
+                                            <div class="table-cell">
+                                                <h2>Vad hände sen?</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="attachment-container"></div>
                                 </section>
                             </div>
                         </div>

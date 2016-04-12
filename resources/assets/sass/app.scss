@@ -56,6 +56,14 @@ h2 {
 hr {
 	border-top: 1px solid $blue;
 }
+.table {
+	display: table;
+	height: 100%;
+}
+.table-cell {
+	display: table-cell;
+	vertical-align: middle;
+}
 
 /**
  * Header
@@ -110,23 +118,38 @@ header[role="banner"] {
 		width: 100%;
 		display: block;
 	}
-}
-h2 {
-	text-align: left;
+	.form-control {
+		margin-bottom: 10px;
+	}
 }
 .preview-container {
+	padding: 20px 0;
 	background: $blue;
 	display: none;
+	.logo {
+		margin: 0 auto 10px;		
+	}
 	@media (min-width: $screen-sm-min) {
 		display: block;
 	}
 }
 #preview {
+	padding: 0 20px 20px;
 	background: white;
+	overflow: hidden;
 }
 .preview-placeholder {
 	color: $red;
 }
+.attachment-placeholder {
+	height: 250px;
+	background: $blue;
+	h2 {
+		text-align: center;
+		color: #fff;
+	}
+}
+
 
 /**
  * Headline

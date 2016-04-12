@@ -8353,6 +8353,16 @@ hr {
   border-top: 1px solid #00569f;
 }
 
+.table {
+  display: table;
+  height: 100%;
+}
+
+.table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
 /**
  * Header
  */
@@ -8421,13 +8431,18 @@ header[role="banner"] {
   display: block;
 }
 
-h2 {
-  text-align: left;
+.create-headline .form-control {
+  margin-bottom: 10px;
 }
 
 .preview-container {
+  padding: 20px 0;
   background: #00569f;
   display: none;
+}
+
+.preview-container .logo {
+  margin: 0 auto 10px;
 }
 
 @media (min-width: 768px) {
@@ -8437,11 +8452,23 @@ h2 {
 }
 
 #preview {
+  padding: 0 20px 20px;
   background: white;
+  overflow: hidden;
 }
 
 .preview-placeholder {
   color: #ff0b14;
+}
+
+.attachment-placeholder {
+  height: 250px;
+  background: #00569f;
+}
+
+.attachment-placeholder h2 {
+  text-align: center;
+  color: #fff;
 }
 
 /**
