@@ -8435,6 +8435,11 @@ header[role="banner"] {
   margin-bottom: 10px;
 }
 
+.loading {
+  background: transparent url("/img/loader.svg") right center no-repeat;
+  background-size: contain;
+}
+
 .preview-container {
   padding: 20px 0;
   background: #00569f;

@@ -2290,24 +2290,19 @@ d.parent(".dropdown-menu").length&&(d=d.closest("li.dropdown").addClass("active"
 ;(function(window, document, $, undefined) {
     'use strict';
 
-
     var attachmentContainer = document.getElementById('attachment-container');
     var createHeadlineForm = new Vue({
         el: '#create-headline',
         data: {
             punchline: '',
             imageLink: '',
+            uploadedImage: '', 
             youtubeLink: ''
         },
         computed: {
             hasAttachment: function () {
-                //console.log(this.youtubeLink.length);
-                return !(this.youtubeLink.length || this.imageLink.length);
+                return !(this.youtubeLink.length || this.imageLink.length || this.uploadedImage.length);
             }
-        }, 
-        created: function () {
-            //console.log(this.youtubeLink.length);
-            //console.log(this.hasAttachment);
         }, 
         methods: {
             setPunchline: function(event) {
@@ -2347,14 +2342,19 @@ d.parent(".dropdown-menu").length&&(d=d.closest("li.dropdown").addClass("active"
             }
         }
     });
+
     if (matchMedia('(min-width: 767px)').matches) {
         $('input[name="uploaded-image"]').fileupload({
             dataType: 'json',
+            submit: function (e, data) {
+                e.target.classList.add('loading');
+            }, 
             done: function (e, data) {
+                e.target.classList.remove('loading');
                 attachmentContainer.innerHTML = '';
                 if (data.result.uploadedImageURL) {
                     var url = data.result.uploadedImageURL;
-                    document.getElementById('ajax-uploaded-image-url').setAttribute('value', url);
+                    createHeadlineForm.uploadedImage = url;
                     var img = new Image;
                     img.src = url;
                     attachmentContainer.appendChild(img);
