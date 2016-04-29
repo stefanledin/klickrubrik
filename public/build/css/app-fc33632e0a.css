@@ -8481,8 +8481,14 @@ header[role="banner"] {
  */
 
 .headline h1 {
-  margin-top: 0;
+  margin-top: 20px;
   text-align: left;
+}
+
+@media (min-width: 768px) {
+  .headline h1 {
+    margin-top: 0;
+  }
 }
 
 .panel {
