@@ -7,6 +7,8 @@
         <meta property="fb:app_id" content="<?php echo env('FB_APP_ID');?>">
         <meta property="og:type" content="website">
         <meta property="og:image" content="{{ asset('img/share-image.png') }}">
+        <meta property="og:image:width" content="600">
+        <meta property="og:image:height" content="315">
         @section('head')
         @show
         <title>Klickrubrik - Förändrar allt</title>
