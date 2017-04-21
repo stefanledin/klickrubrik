@@ -25,9 +25,7 @@
                                 @endif
 
                                 @if($headline->attachment->type == 'youtube')
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        {!! $headline->attachment->embedCode() !!}
-                                    </div>
+                                    {!! $headline->attachment->embedCode() !!}
                                 @endif
                             </div>
                         </div>
