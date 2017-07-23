@@ -24,7 +24,7 @@
         <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicons/favicon-32x32.png') }}">
         <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('favicons/favicon-96x96.png') }}">
         <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicons/favicon-16x16.png') }}">
-        <link rel="manifest" href="{{ asset('favicons/manifest.json') }}">
+        <link rel="manifest" href="{{ asset('manifest.json') }}">
         <meta name="msapplication-TileColor" content="#00569f">
         <meta name="msapplication-TileImage" content="{{ asset('favicons/ms-icon-144x144.png') }}">
         <meta name="theme-color" content="#00569f">
