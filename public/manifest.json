@@ -2,6 +2,7 @@
  "name": "Klickrubrik - Förändrar allt",
  "short_name": "Klickrubrik",
  "theme_color": "#00569f",
+ "background_color": "#00569f",
  "icons": [
   {
    "src": "\/favicons/android-icon-36x36.png",
@@ -36,6 +37,12 @@
   {
    "src": "\/favicons/android-icon-192x192.png",
    "sizes": "192x192",
+   "type": "image\/png",
+   "density": "4.0"
+  },
+  {
+   "src": "\/favicons/android-icon-512x512.png",
+   "sizes": "512x512",
    "type": "image\/png",
    "density": "4.0"
   }
