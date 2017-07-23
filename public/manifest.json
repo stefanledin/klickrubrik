@@ -3,6 +3,8 @@
  "short_name": "Klickrubrik",
  "theme_color": "#00569f",
  "background_color": "#00569f",
+ "display": "fullscreen",
+ "start_url": "https://klickrubrik.nu",
  "icons": [
   {
    "src": "\/favicons/android-icon-36x36.png",
