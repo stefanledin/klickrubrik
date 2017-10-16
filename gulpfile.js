@@ -1,4 +1,5 @@
 var elixir = require('laravel-elixir');
+var gulp = require('gulp');
 
 /*
  |--------------------------------------------------------------------------
@@ -30,3 +31,16 @@ elixir(function(mix) {
 		])
 });
 
+gulp.task('generate-service-worker', function(callback) {
+    var swPrecache = require('sw-precache');
+    var rootDir = 'public';
+
+    swPrecache.write(`${rootDir}/service-worker.js`, {
+        //staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}'],
+        staticFileGlobs: [
+            rootDir + '/build/**/*.{js,css}',
+            rootDir + '/img/**/*.{jpg,png,svg}'
+        ],
+        stripPrefix: rootDir
+    }, callback);
+});

@@ -1,6 +1,12 @@
 ;(function(window, document, $, undefined) {
     'use strict';
 
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+            navigator.serviceWorker.register('../service-worker.js');
+        });
+    }
+
     var attachmentContainer = document.getElementById('attachment-container');
     var createHeadlineForm = new Vue({
         el: '#create-headline',
