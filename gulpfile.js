@@ -36,11 +36,14 @@ gulp.task('generate-service-worker', function(callback) {
     var rootDir = 'public';
 
     swPrecache.write(`${rootDir}/service-worker.js`, {
-        //staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}'],
         staticFileGlobs: [
             rootDir + '/build/**/*.{js,css}',
             rootDir + '/img/**/*.{jpg,png,svg}'
         ],
+        dynamicUrlToDependencies: {
+            '/': ['resources/views/master.blade.php', 'resources/views/index.blade.php']
+        },
+        navigateFallback: '/',
         stripPrefix: rootDir
     }, callback);
 });

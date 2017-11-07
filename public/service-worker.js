@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["/build/css/app-0fa125f4db.css","0fa125f4dbf14a04ac80bce9deeb7bd4"],["/build/css/app-fc33632e0a.css","fc33632e0a88e19e51a79cf958e5cf6f"],["/build/js/all-42875495cd.js","42875495cd8fcb1bf0d5216053307750"],["/build/js/all-a14517b091.js","a14517b09176959980ef8727fe51cc1f"],["/img/klickrubrik-logo.png","63972b3a58e6d4956712f6fc4500a00a"],["/img/loader.svg","af682cfb0a8e266fa91d3b903ad3ba55"],["/img/share-image.png","66ff3cfc33292e32f74f5f313c8e4420"]];
+var precacheConfig = [["/","448448ee94f875c7028b741ad09a86ce"],["/build/css/app-0fa125f4db.css","0fa125f4dbf14a04ac80bce9deeb7bd4"],["/build/css/app-d1ced9834b.css","d1ced9834b99172500d0c5611f58402a"],["/build/js/all-42875495cd.js","42875495cd8fcb1bf0d5216053307750"],["/build/js/all-a14517b091.js","a14517b09176959980ef8727fe51cc1f"],["/img/klickrubrik-logo.png","63972b3a58e6d4956712f6fc4500a00a"],["/img/loader.svg","af682cfb0a8e266fa91d3b903ad3ba55"],["/img/share-image.png","66ff3cfc33292e32f74f5f313c8e4420"]];
 var cacheName = 'sw-precache-v3--' + (self.registration ? self.registration.scope : '');
 
 
@@ -229,7 +229,7 @@ self.addEventListener('fetch', function(event) {
 
     // If shouldRespond is still false, check to see if this is a navigation
     // request, and if so, whether the URL matches navigateFallbackWhitelist.
-    var navigateFallback = '';
+    var navigateFallback = '/';
     if (!shouldRespond &&
         navigateFallback &&
         (event.request.mode === 'navigate') &&
