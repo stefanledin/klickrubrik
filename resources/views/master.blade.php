@@ -60,7 +60,10 @@
                 </form>
             </div>
 
-            <div class="preview"></div>
+            <div class="preview">
+                <p>Förhandsvisning</p>
+                <h1>Först trodde VEM att VAD - du kan inte gissa vad som hände sen!</h1>
+            </div>
 
         </div>
 
