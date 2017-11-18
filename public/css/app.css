@@ -522,12 +522,22 @@ body {
 }
 
 .page {
-  height: 100%;
   background: rgba(0, 86, 159, 0.1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.headline {
+  font-size: 36px;
+}
+
+.headline span {
+  color: #00569F;
 }
 
 .headline-maker {
-  max-width: 470px;
+  width: 100%;
   min-height: 100%;
   padding: 31px 0;
   background: #00569F;
@@ -558,21 +568,27 @@ body {
   text-transform: uppercase;
 }
 
-.headline-maker label,
-.headline-maker input[type="text"],
-.headline-maker select {
+.headline-maker .input-wrapper {
+  margin: 10px 0 10px 0;
+}
+
+.headline-maker label {
+  display: block;
   margin-bottom: 10px;
+}
+
+.headline-maker .input {
   width: 100%;
   display: block;
   font-size: 20px;
 }
 
-.headline-maker input[type="text"],
-.headline-maker select {
+.headline-maker .input--text,
+.headline-maker .input--select {
   height: 34px;
 }
 
-.headline-maker input[type="text"] {
+.headline-maker .input--text {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   padding: 8px;
@@ -580,28 +596,105 @@ body {
   color: #00569F;
 }
 
-.headline-maker input[type="text"]::-webkit-input-placeholder {
+.headline-maker .input--text::-webkit-input-placeholder {
   color: #00569F;
 }
 
-.headline-maker input[type="text"]:-ms-input-placeholder {
+.headline-maker .input--text:-ms-input-placeholder {
   color: #00569F;
 }
 
-.headline-maker input[type="text"]::-ms-input-placeholder {
+.headline-maker .input--text::-ms-input-placeholder {
   color: #00569F;
 }
 
-.headline-maker input[type="text"]::placeholder {
+.headline-maker .input--text::placeholder {
   color: #00569F;
 }
 
-.headline-maker select {
+.headline-maker .input--select {
   padding: 8px;
   background: white;
   border: none;
   color: #00569F;
 }
+
+/**
+ * Preview
+ */
+
+.preview-wrapper {
+  display: none;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.preview {
+  width: 64.9484536082474%;
+  background: white;
+  -webkit-box-shadow: 0 30px 30px rgba(0, 86, 159, 0.2);
+          box-shadow: 0 30px 30px rgba(0, 86, 159, 0.2);
+}
+
+.preview__inner {
+  margin: 23px auto;
+  width: 74.6031746031746%;
+}
+
+.preview__headline {
+  text-align: center;
+  font-size: 14px;
+  color: #00569F;
+  display: block;
+  text-transform: uppercase;
+}
+
+.preview__attachment-placeholder {
+  position: relative;
+  background: #00569F;
+  color: white;
+}
+
+.preview__attachment-placeholder:before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+.preview__attachment-placeholder > .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.preview__attachment-placeholder div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 100px;
+}
+
+/**
+ * Icons
+ */
 
 .icon-group {
   margin: 0;
@@ -639,12 +732,26 @@ body {
   cursor: pointer;
 }
 
+.icon-group__icon:first-child label {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.icon-group__icon:last-child label {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
 .icon-group__icon svg {
   margin-bottom: 10px;
 }
 
 .icon-group__icon input[type="radio"] {
   display: none;
+}
+
+.icon-group__icon--selected label {
+  background: white;
 }
 
 .icon-group__icon label:hover,
@@ -667,17 +774,26 @@ body {
   margin: 0 auto 28px auto;
 }
 
+.vh {
+  min-height: 100vh;
+}
+
 @media (min-width: 767px) {
   .headline-maker {
+    max-width: 470px;
+    width: auto;
     -webkit-box-flex: 1;
         -ms-flex: 1;
             flex: 1;
   }
 
-  .preview {
-    -webkit-box-flex: 2;
-        -ms-flex: 2;
-            flex: 2;
+  .preview-wrapper {
+    -webkit-box-flex: 1.5;
+        -ms-flex: 1.5;
+            flex: 1.5;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 

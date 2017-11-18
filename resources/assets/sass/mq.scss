@@ -1,11 +1,14 @@
 @media (min-width: 767px) {
     
     .headline-maker {
+        max-width: 470px;
+        width: auto;
         flex: 1;
     }
 
-    .preview {
-        flex: 2;
+    .preview-wrapper {
+        flex: 1.5;
+        display: flex;
     }
 
 }

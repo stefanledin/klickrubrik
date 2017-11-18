@@ -15,8 +15,41 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
-
 const app = new Vue({
-    el: '#app'
+    el: '#app',
+    data: {
+        who: '',
+        what: '',
+        punchline: 'du kan inte gissa vad som hände sen!',
+        imageLink: '',
+        youtubeLink: '',
+        attachmentType: '',
+        attachment: ''
+    },
+    mounted() {
+        this.attachmentContainer = this.$el.querySelector('#attachment-container');
+    },
+    watch: {
+        imageLink(value) {
+            this.attachment = value
+        }
+    },
+    computed: {},
+    methods: {
+
+        loadImageLink: function(e) {
+            this.attachment = `<img src="${this.imageLink}">`;
+            /*var img = new Image;
+            img.src = this.imageLink;
+            img.onload = function() {
+                if ((img.width === 0) && (img.height == 0)) return;
+                this.attachment = img;
+                if (this.attachmentContainer.childNodes.length) {
+                    this.attachmentContainer.childNodes[0].remove();
+                }
+                this.attachmentContainer.appendChild(img);
+            }.bind(this);*/
+        }
+
+    },
 });
