@@ -9,6 +9,8 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+const getVideoId = require('get-video-id');
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -21,8 +23,9 @@ const app = new Vue({
         who: '',
         what: '',
         punchline: 'du kan inte gissa vad som hände sen!',
+        fileUpload: '',
         imageLink: '',
-        youtubeLink: '',
+        youtubeVideo: '',
         attachmentType: '',
         attachment: ''
     },
@@ -38,7 +41,10 @@ const app = new Vue({
     methods: {
 
         loadImageLink: function(e) {
-            this.attachment = `<img src="${this.imageLink}">`;
+            if (this.imageLink) {
+                this.attachment = `<img class="attachment attachment--image" src="${this.imageLink}">`;
+            }
+            
             /*var img = new Image;
             img.src = this.imageLink;
             img.onload = function() {
@@ -49,6 +55,42 @@ const app = new Vue({
                 }
                 this.attachmentContainer.appendChild(img);
             }.bind(this);*/
+        },
+
+        uploadImage: function (e) {
+            console.log(e);
+            axios.post('/headline', {
+                who: this.who,
+                what: this.what,
+                punchline: this.punchline,
+                attachment_type: this.attachmentType,
+                'file-upload': e.target.files[0]
+            })
+            .then(function (response) {
+                console.log(response)
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+            //this.createHeadline();
+        },
+
+        loadYoutubeVideo: function (e) {
+            const video = getVideoId(this.youtubeVideo);
+            if (!video.id) {
+                // Error!
+                return;
+            }
+            this.attachment = `<div class="attachment attachment--video"><iframe src="https://www.youtube.com/embed/${video.id}" width="560" height="315" allowfullscreen></iframe></div>`
+        },
+
+        createHeadline: function () {
+            axios.post('/headline', {
+                who: this.who,
+                what: this.what,
+                punchline: this.punchline,
+                attachment_type: this.attachmentType
+            })
         }
 
     },

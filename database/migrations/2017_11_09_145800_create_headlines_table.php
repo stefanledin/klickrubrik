@@ -15,9 +15,11 @@ class CreateHeadlinesTable extends Migration
     {
         Schema::create('headlines', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('who');
-            $table->string('what');
-            $table->string('punchline');
+            $table->string('who')->nullable();
+            $table->string('what')->nullable();
+            $table->string('punchline')->nullable();
+            $table->string('attachment_type')->nullable();
+            $table->string('attachment_link')->nullable();
             $table->timestamps();
         });
     }
