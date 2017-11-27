@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\UploadedFile;
 use Illuminate\Http\Request;
-use App\Headline;
 
-class HeadlineController extends Controller
+class UploadedFileController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,40 +35,33 @@ class HeadlineController extends Controller
      */
     public function store(Request $request)
     {
-        $headline = new Headline();
+        $path = $request->file('file-upload')->store('uploads');
+        $link = asset('storage/'.$path);
+        $image = UploadedFile::create([
+            'link' => $link
+        ]);
 
-        // Texten i rubriken
-        $headline->who = $request->input('who');
-        $headline->what = $request->input('what');
-        $headline->punchline = $request->input('punchline');
-        
-        // Spara attachment
-        $headline->attachment_link = $request->input('attachment-link');
-        $headline->attachment_type = $request->input('attachment-type');
-
-        $headline->save();
-        return $headline;
+        return $image;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\UploadedFile  $uploadedFile
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(UploadedFile $uploadedFile)
     {
-        $headline = Headline::find($id);
-        return view('headline', ['headline' => $headline]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\UploadedFile  $uploadedFile
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(UploadedFile $uploadedFile)
     {
         //
     }
@@ -77,10 +70,10 @@ class HeadlineController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\UploadedFile  $uploadedFile
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, UploadedFile $uploadedFile)
     {
         //
     }
@@ -88,10 +81,10 @@ class HeadlineController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\UploadedFile  $uploadedFile
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(UploadedFile $uploadedFile)
     {
         //
     }

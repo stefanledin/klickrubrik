@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('master');
+    return view('create');
 });
 
 Route::resource('headline', 'HeadlineController');
+Route::resource('uploadedfile', 'UploadedFileController');

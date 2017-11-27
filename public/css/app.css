@@ -533,11 +533,13 @@ body {
   display: flex;
 }
 
-.headline {
+h1,
+.h1 {
   font-size: 36px;
 }
 
-.headline span {
+h1 span,
+.h1 span {
   color: #00569F;
 }
 
@@ -683,6 +685,21 @@ body {
       -ms-flex-align: center;
           align-items: center;
   font-size: 100px;
+}
+
+/**
+ *
+ * Headline
+ *
+ */
+
+.headline__header {
+  background: #00569F;
+}
+
+.headline__header svg {
+  margin: 0 auto;
+  display: block;
 }
 
 /**

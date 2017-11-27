@@ -40,7 +40,7 @@ body {
     display: flex;
 }
 
-.headline {
+h1, .h1 {
     font-size: 36px;
     span {
         color: $dark-blue;
@@ -157,6 +157,21 @@ body {
         justify-content: center;
         align-items: center;
         font-size: 100px;
+    }
+}
+
+
+/**
+ *
+ * Headline
+ *
+ */
+
+.headline__header {
+    background: $dark-blue;
+    svg {
+        margin: 0 auto;
+        display: block;
     }
 }
 

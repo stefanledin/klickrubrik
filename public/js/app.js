@@ -1008,43 +1008,28 @@ var app = new Vue({
 
     watch: {
         imageLink: function imageLink(value) {
-            this.attachment = value;
+            this.attachment = '<img class="attachment attachment--image" src="' + value + '">';
         }
     },
     computed: {},
     methods: {
 
         loadImageLink: function loadImageLink(e) {
-            if (this.imageLink) {
-                this.attachment = '<img class="attachment attachment--image" src="' + this.imageLink + '">';
-            }
-
-            /*var img = new Image;
-            img.src = this.imageLink;
-            img.onload = function() {
-                if ((img.width === 0) && (img.height == 0)) return;
-                this.attachment = img;
-                if (this.attachmentContainer.childNodes.length) {
-                    this.attachmentContainer.childNodes[0].remove();
-                }
-                this.attachmentContainer.appendChild(img);
-            }.bind(this);*/
+            /* if (this.imageLink) {
+                this.attachment = `<img class="attachment attachment--image" src="${this.imageLink}">`;
+            } */
         },
 
         uploadImage: function uploadImage(e) {
-            console.log(e);
+            var _this = this;
+
             var data = new FormData();
-            data.append('who', this.who);
-            data.append('what', this.what);
-            data.append('punchline', this.punchline);
-            data.append('attachment_type', this.attachment_type);
             data.append('file-upload', e.target.files[0]);
-            axios.post('/headline', data).then(function (response) {
-                console.log(response);
+            axios.post('/uploadedfile', data).then(function (response) {
+                return _this.imageLink = response.data.link;
             }).catch(function (error) {
-                console.log(error);
+                return console.log(error);
             });
-            //this.createHeadline();
         },
 
         loadYoutubeVideo: function loadYoutubeVideo(e) {
@@ -1056,12 +1041,18 @@ var app = new Vue({
             this.attachment = '<div class="attachment attachment--video"><iframe src="https://www.youtube.com/embed/' + video.id + '" width="560" height="315" allowfullscreen></iframe></div>';
         },
 
-        createHeadline: function createHeadline() {
+        createHeadline: function createHeadline(event) {
+            event.preventDefault();
             axios.post('/headline', {
                 who: this.who,
                 what: this.what,
                 punchline: this.punchline,
-                attachment_type: this.attachmentType
+                'attachment-link': this.attachment,
+                'attachment-type': this.attachmentType
+            }).then(function (response) {
+                return window.location.href = window.location.href + 'headline/' + response.data.id;
+            }).catch(function (error) {
+                return console.log(error);
             });
         }
 
