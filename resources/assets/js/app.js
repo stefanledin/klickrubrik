@@ -59,23 +59,23 @@ const app = new Vue({
 
         uploadImage: function (e) {
             console.log(e);
-            axios.post('/headline', {
-                who: this.who,
-                what: this.what,
-                punchline: this.punchline,
-                attachment_type: this.attachmentType,
-                'file-upload': e.target.files[0]
-            })
-            .then(function (response) {
-                console.log(response)
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-            //this.createHeadline();
-        },
+            let data = new FormData();
+            data.append('who', this.who);
+            data.append('what', this.what);
+            data.append('punchline', this.punchline);
+            data.append('attachment_type', this.attachment_type);
+            data.append('file-upload', e.target.files[0]);
+            axios.post('/headline', data)
+                .then(function (response) {
+                    console.log(response)
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+                //this.createHeadline();
+            },
 
-        loadYoutubeVideo: function (e) {
+            loadYoutubeVideo: function (e) {
             const video = getVideoId(this.youtubeVideo);
             if (!video.id) {
                 // Error!

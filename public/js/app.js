@@ -1033,13 +1033,13 @@ var app = new Vue({
 
         uploadImage: function uploadImage(e) {
             console.log(e);
-            axios.post('/headline', {
-                who: this.who,
-                what: this.what,
-                punchline: this.punchline,
-                attachment_type: this.attachmentType,
-                'file-upload': e.target.files[0]
-            }).then(function (response) {
+            var data = new FormData();
+            data.append('who', this.who);
+            data.append('what', this.what);
+            data.append('punchline', this.punchline);
+            data.append('attachment_type', this.attachment_type);
+            data.append('file-upload', e.target.files[0]);
+            axios.post('/headline', data).then(function (response) {
                 console.log(response);
             }).catch(function (error) {
                 console.log(error);
