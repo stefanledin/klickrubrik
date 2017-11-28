@@ -528,9 +528,6 @@ body {
 
 .page {
   background: rgba(0, 86, 159, 0.1);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 h1,
@@ -647,8 +644,6 @@ h1 span,
 .preview {
   width: 64.9484536082474%;
   background: white;
-  -webkit-box-shadow: 0 30px 30px rgba(0, 86, 159, 0.2);
-          box-shadow: 0 30px 30px rgba(0, 86, 159, 0.2);
 }
 
 .preview__inner {
@@ -693,13 +688,66 @@ h1 span,
  *
  */
 
+.headline {
+  margin: 0 auto;
+  width: 43.75%;
+  max-width: 630px;
+  background: white;
+}
+
 .headline__header {
+  height: 100px;
   background: #00569F;
 }
 
 .headline__header svg {
   margin: 0 auto;
   display: block;
+  max-width: 170px;
+}
+
+.headline__body {
+  margin: 70px auto 0 auto;
+  width: 95%;
+  max-width: 470px;
+}
+
+.headline__body h1 {
+  margin: 0;
+}
+
+.headline__body button {
+  margin: 20px 0;
+}
+
+.headline__attachment {
+  margin-top: 20px;
+}
+
+.headline__footer {
+  margin-top: 70px;
+}
+
+.headline__footer ul {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.headline__footer li {
+  list-style-type: none;
+}
+
+.headline__footer a {
+  padding: 10px 0;
+  display: block;
+  color: #00569F;
+  text-decoration: none;
+}
+
+.headline__footer li:first-child a {
+  border-top: 1px solid #00569F;
+  border-bottom: 1px solid #00569F;
 }
 
 /**
@@ -800,9 +848,25 @@ h1 span,
   display: block;
 }
 
+.button.button--blue {
+  background: #00569F;
+  color: white;
+}
+
 .logo__wrapper svg {
   display: block;
   margin: 0 auto 28px auto;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.shadow {
+  -webkit-box-shadow: 0 30px 30px rgba(0, 86, 159, 0.2);
+          box-shadow: 0 30px 30px rgba(0, 86, 159, 0.2);
 }
 
 .vh {

@@ -37,7 +37,6 @@ body {
 
 .page {
     background: rgba(0, 86, 159, .1);
-    display: flex;
 }
 
 h1, .h1 {
@@ -131,7 +130,6 @@ h1, .h1 {
 .preview {
     width: 64.9484536082474%;
     background: white;
-    box-shadow: 0 30px 30px rgba(0, 86, 159, .2);
 }
 .preview__inner {
     margin: 23px auto;
@@ -167,11 +165,55 @@ h1, .h1 {
  *
  */
 
+.headline {
+    margin: 0 auto;
+    width: 43.75%;
+    max-width: 630px;
+    background: white;
+}
 .headline__header {
+    height: 100px;
     background: $dark-blue;
     svg {
         margin: 0 auto;
         display: block;
+        max-width: 170px;
+    }
+}
+.headline__body {
+    margin: 70px auto 0 auto;
+    width: 95%;
+    max-width: 470px;
+    h1 {
+        margin: 0;
+    }
+    button {
+        margin: 20px 0;
+    }
+}
+.headline__attachment {
+    margin-top: 20px;
+}
+.headline__footer {
+    margin-top: 70px;
+
+    ul {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    li {
+        list-style-type: none;
+    }
+    a {
+        padding: 10px 0;
+        display: block;
+        color: $dark-blue;
+        text-decoration: none;
+    }
+    li:first-child a {
+        border-top: 1px solid $dark-blue;
+        border-bottom: 1px solid $dark-blue;
     }
 }
 
@@ -249,6 +291,10 @@ h1, .h1 {
     font-size: 14px;
     text-transform: uppercase;
     display: block;
+    &.button--blue {
+        background: $dark-blue;
+        color: white;
+    }
 }
 
 .logo__wrapper {
@@ -256,6 +302,13 @@ h1, .h1 {
         display: block;
         margin: 0 auto 28px auto;
     }
+}
+
+.flex {
+    display: flex;
+}
+.shadow {
+    box-shadow: 0 30px 30px rgba(0, 86, 159, .2);
 }
 
 .vh {

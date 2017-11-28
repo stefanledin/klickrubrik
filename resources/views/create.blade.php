@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('body')
-    <div id="app" class="page">
+    <div id="app" class="page flex">
         
         <div class="headline-maker vh">
             <div class="logo__wrapper">
@@ -78,7 +78,7 @@
         </div>
 
         <div class="preview-wrapper vh">
-            <div class="preview">
+            <div class="preview shadow">
                 <div class="preview__inner">
                     <span class="preview__headline">Förhandsvisning</span>
                     <h1 class="headline">Först trodde <span>@{{who ? who : 'vem?'}}</span> att <span>@{{what ? what : 'vad?'}}</span> – <span>@{{punchline}}</span></h1>

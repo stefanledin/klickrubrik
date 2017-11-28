@@ -984,12 +984,6 @@ window.Vue = __webpack_require__(34);
 
 var getVideoId = __webpack_require__(37);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
 var app = new Vue({
     el: '#app',
     data: {
@@ -1011,14 +1005,9 @@ var app = new Vue({
             this.attachment = '<img class="attachment attachment--image" src="' + value + '">';
         }
     },
-    computed: {},
     methods: {
 
-        loadImageLink: function loadImageLink(e) {
-            /* if (this.imageLink) {
-                this.attachment = `<img class="attachment attachment--image" src="${this.imageLink}">`;
-            } */
-        },
+        loadImageLink: function loadImageLink(e) {},
 
         uploadImage: function uploadImage(e) {
             var _this = this;
@@ -1058,6 +1047,15 @@ var app = new Vue({
 
     }
 });
+
+var showAttachment = document.querySelector('.headline__body button');
+if (showAttachment) {
+    showAttachment.addEventListener('click', function (event) {
+        event.preventDefault();
+        this.style.display = 'none';
+        document.querySelector('div.headline__attachment').style.display = 'block';
+    });
+}
 
 /***/ }),
 /* 11 */
